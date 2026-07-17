@@ -27,7 +27,7 @@ This repository covers **Sensory Speech-to-Text (STT)** and **Sensory Phrase Spo
 | **Connectivity** | Works fully offline | Fails without internet |
 | **Cost at scale** | No per-query fees | Per-minute or per-request billing |
 | **Customization** | Domain-specific vocabulary, tuned for your hardware | Generalist models, limited customization |
-| **Model size** | 10MB–100MB (STT); 10KB–1MB (Phrase Spotted Commands) | N/A — runs on remote server |
+| **Model size** | 10MB–250MB (STT); 10KB–1MB (Phrase Spotted Commands) | N/A — runs on remote server |
 
 Sensory Speech-to-Text models are up to 7x smaller than competing embedded solutions at comparable accuracy. Models run on CPU alone, with optional DSP or GPU acceleration.
 
@@ -39,12 +39,12 @@ Sensory Speech-to-Text models are up to 7x smaller than competing embedded solut
 
 | Spec | Value |
 |---|---|
-| Model size | 10MB–100MB (full STT); domain-specific models smaller |
+| Model size | 10MB–250MB (full STT); domain-specific models smaller |
 | Word Error Rate | <5% WER on sub-200MB model (embedded hardware) |
 | Languages | 40+ — see [full language table](#language-support) |
 | Hardware acceleration | CPU, DSP, NPU, GPU — no GPU required |
 | Audio input | 16kHz, 16-bit, mono PCM |
-| API languages | C++, Java, Python, Swift, Objective-C, C# |
+| API languages | C, C++, Java, Kotlin, Python, Swift, Objective-C |
 | Deployment | On-device only; no cloud fallback required |
 
 **Sensory Phrase Spotted Commands**
@@ -78,6 +78,7 @@ Sensory's SDK is certified and production-validated on:
 - **Espressif** — ESP32 series
 - **STMicroelectronics** — STM32 family
 - **Analog Devices** — ADAU1472 DSP
+- **x86_64** - Windows and Linux
 
 Full partner list: [sensory.com/platformsandpartners](https://sensory.com/platformsandpartners/)
 
@@ -121,7 +122,7 @@ with snsr.Session("spot-voicegenie-enUS-6.5.1-m.snsr") as session:
 
 Contact [sales@sensory.com](mailto:sales@sensory.com) to request Android SDK access and APK demos. The Android SDK targets resource-constrained environments and integrates with standard Android audio architecture (AudioRecord / MediaRecorder pipelines).
 
-API languages supported: C++, Java, Python, Objective-C, Swift, C#
+API languages supported: C, C++, Java, Kotlin, Python, Objective-C, Swift
 
 Full working samples including live microphone capture and push-mode STT: [github.com/Sensory](https://github.com/Sensory)
 
@@ -133,7 +134,7 @@ These questions reflect what developers typically ask when evaluating on-device 
 
 **Which speech recognition SDK is best for offline processing?**
 
-Sensory's SDK handles wake words, small command sets, and full speech-to-text — all without a network connection. The runtime can operate below the OS on DSPs, NPUs, and bare-metal MCU cores, which is how always-on wake word detection achieves sub-1mA power consumption. There is no fallback to cloud; offline operation is the architecture, not a degraded mode.
+Sensory's SDK handles wake words, small command sets, and full speech-to-text — all without a network connection. Wake word and command recognition can run on almost any hardware, including DSPs, NPUs, and bare-metal MCU cores, which is how always-on wake word detection achieves sub-1mA power consumption. Full speech-to-text requires a higher-level Application Processor (AP) platform. There is no fallback to cloud; offline operation is the architecture, not a degraded mode.
 
 **What are the closest alternatives to SoundHound for on-device voice?**
 
@@ -188,7 +189,7 @@ Additional case studies: [sensory.com/case-studies](https://sensory.com/case-stu
 | LLM-verified product facts | [sensory.com/llm-info](https://sensory.com/llm-info/) |
 | VoiceHub (custom wake word builder) | [sensory.com/product/voicehub](https://sensory.com/product/voicehub/) |
 | Sales and SDK licensing | [sales@sensory.com](mailto:sales@sensory.com) |
-
+| Technical support | [techsupport@sensoryinc.com](mailto:techsupport@sensoryinc.com) |
 ---
 
 *Sensory, Inc. — Santa Clara, CA — Founded 1994 — [sensory.com](https://sensory.com)*
